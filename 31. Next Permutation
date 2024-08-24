@@ -1,0 +1,10 @@
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+    next_permutation(nums.begin(),nums.end());  
+    
+    }
+    
+};
+
+// this is problem is very easy to do in this , but there is a separate solution to visualize how exactly the in built function(next_permutation) work.
