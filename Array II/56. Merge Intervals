@@ -2,6 +2,7 @@ class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         n=len(intervals)
         ans=[]
+        intervals.sort()
         for i in range(n):
 
             if not ans or ans[-1][1]<intervals[i][0]:
