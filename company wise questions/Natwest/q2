@@ -1,0 +1,51 @@
+question contains two integers as the input and task is to convert those two into binary and 
+find the number of digits different from each other
+input  = 5,3
+output=2
+
+explanation
+
+a = 5 (binary: 00000101)
+b = 3 (binary: 00000011)
+
+The sum of True values (3) gives us the count of differing bits
+
+code:
+
+def count_differing_bits_8bit(a, b):
+    # Ensure the integers are within the 8-bit range
+    if not (0 <= a < 256) or not (0 <= b < 256):
+        raise ValueError("Input integers must be in the range 0 to 255 (inclusive).")
+    
+    # Convert integers to 8-bit binary strings
+    bin_a = format(a, '08b')  # Format as 8-bit binary
+    bin_b = format(b, '08b')  # Format as 8-bit binary
+    
+    # Count differing bits
+    differing_bits_count = sum(bit_a != bit_b for bit_a, bit_b in zip(bin_a, bin_b))
+    
+    return differing_bits_count
+
+# Example usage
+a = 5
+b = 3
+print(count_differing_bits_8bit(a, b))  # Output: 3
+
+Another approach using XOR:
+
+def count_different_bits(x, y):
+    # Perform XOR to find differing bits
+    xor_result = x ^ y
+    
+    # Count the number of 1s in the binary representation of xor_result
+    differing_bits_count = bin(xor_result).count('1')
+    
+    return differing_bits_count
+
+# Example usage:
+x = 5
+y = 3
+result = count_different_bits(x, y)
+print(f"Number of different bits between {x} and {y} is: {result}")
+
+
