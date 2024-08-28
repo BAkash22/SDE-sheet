@@ -1,0 +1,34 @@
+find the sum of digits of  a numbers in a list , return answer as a list 
+
+example
+
+input= [43,25,67,12]
+output = [7,7,13,3]
+
+explanation:
+
+4+3=7
+2+5=7
+6+7=13
+1+2=3
+
+code:
+
+def sum_of_digits_in_list(numbers):
+    # Initialize an empty list to store the sums
+    result = []
+    
+    # Iterate through each number in the input list
+    for num in numbers:
+        # Calculate the sum of digits by converting the number to a string, then to individual integers, and summing them
+        digit_sum = sum(int(digit) for digit in str(num))
+        
+        # Append the result to the list
+        result.append(digit_sum)
+    
+    return result
+
+# Example usage:
+input_numbers = [43, 25, 67, 12]
+output = sum_of_digits_in_list(input_numbers)
+print(output)  # Output: [7, 7, 13, 3]
